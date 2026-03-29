@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>中村浩一郎 | キャリアコーチ・著者</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ring: #9FD4D5;
+    --word: #15B2C7;
+    --dark: #0e1012;
+    --mid: #1a1e22;
+    --light: #f5f4f0;
+    --muted: #8a8f94;
+    --accent: #15B2C7;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--dark);
+    color: var(--light);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.4rem 4rem;
+    background: rgba(14,16,18,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(159,212,213,0.12);
+  }
+
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    letter-spacing: 0.2em;
+    color: var(--ring);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--ring); }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 8rem 4rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 80% at 70% 50%, rgba(21,178,199,0.08) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(159,212,213,0.05) 0%, transparent 50%);
+  }
+
+  .hero-line {
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 50%;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, rgba(159,212,213,0.2) 30%, rgba(159,212,213,0.2) 70%, transparent);
+  }
+
+  .hero-text {
+    position: relative;
+    z-index: 2;
+    padding-right: 4rem;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--word);
+    border: 1px solid rgba(21,178,199,0.4);
+    padding: 0.35rem 1rem;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.8s ease both;
+  }
+
+  .hero-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.8s 0.1s ease both;
+  }
+
+  .hero-title em {
+    font-style: normal;
+    color: var(--ring);
+  }
+
+  .hero-sub {
+    font-size: 0.95rem;
+    color: var(--muted);
+    max-width: 420px;
+    line-height: 2;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+
+  .hero-cta {
+    margin-top: 2.5rem;
+    display: flex;
+    gap: 1rem;
+    animation: fadeUp 0.8s 0.3s ease both;
+  }
+
+  .btn-primary {
+    background: var(--word);
+    color: #fff;
+    border: none;
+    padding: 0.85rem 2.2rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity 0.3s, transform 0.3s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { opacity: 0.85; transform: translateY(-2px); }
+
+  .btn-outline {
+    border: 1px solid rgba(159,212,213,0.5);
+    color: var(--ring);
+    padding: 0.85rem 2.2rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.3s;
+    display: inline-block;
+  }
+
+  .btn-outline:hover {
+    background: rgba(159,212,213,0.08);
+    transform: translateY(-2px);
+  }
+
+  .hero-visual {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    animation: fadeIn 1.2s 0.2s ease both;
+  }
+
+  .hero-portrait {
+    width: 320px;
+    height: 400px;
+    object-fit: cover;
+    filter: grayscale(20%) contrast(1.05);
+    border: 1px solid rgba(159,212,213,0.2);
+  }
+
+  .hero-portrait-placeholder {
+    width: 320px;
+    height: 400px;
+    background: linear-gradient(135deg, var(--mid) 0%, rgba(21,178,199,0.1) 100%);
+    border: 1px solid rgba(159,212,213,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+  }
+
+  .hero-name-card {
+    text-align: center;
+  }
+
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.15em;
+    color: var(--light);
+  }
+
+  .hero-role {
+    font-size: 0.75rem;
+    color: var(--muted);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-top: 0.3rem;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1.2rem;
+    margin-top: 0.5rem;
+  }
+
+  .social-links a {
+    color: var(--muted);
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .social-links a:hover { color: var(--ring); }
+
+  /* ── SECTIONS common ── */
+  section {
+    padding: 7rem 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--word);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .section-label::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--word);
+  }
+
+  .section-title {
+    font-family: 'Noto Serif JP', serif;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 300;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+
+  /* ── VISION/MISSION ── */
+  #vision {
+    border-top: 1px solid rgba(159,212,213,0.1);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .vm-block {
+    padding: 2.5rem;
+    border: 1px solid rgba(159,212,213,0.1);
+    position: relative;
+  }
+
+  .vm-block::before {
+    content: '';
+    position: absolute;
+    top: -1px; left: 0;
+    width: 60px;
+    height: 2px;
+    background: var(--word);
+  }
+
+  .vm-block h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ring);
+    margin-bottom: 1.2rem;
+  }
+
+  .vm-block p {
+    font-size: 0.92rem;
+    color: rgba(245,244,240,0.75);
+    line-height: 2.1;
+  }
+
+  /* ── SERVICE ── */
+  #service {
+    border-top: 1px solid rgba(159,212,213,0.1);
+  }
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .service-card {
+    padding: 2.5rem 2rem;
+    background: var(--mid);
+    border-top: 2px solid var(--word);
+    transition: transform 0.3s, background 0.3s;
+  }
+
+  .service-card:hover {
+    transform: translateY(-6px);
+    background: rgba(21,178,199,0.07);
+  }
+
+  .service-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    color: rgba(21,178,199,0.2);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .service-card h3 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    color: var(--ring);
+  }
+
+  .service-card p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 2;
+  }
+
+  /* ── MEDIA ── */
+  #media {
+    border-top: 1px solid rgba(159,212,213,0.1);
+  }
+
+  .media-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .media-item {
+    padding: 1.5rem;
+    border: 1px solid rgba(159,212,213,0.12);
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.8;
+    transition: border-color 0.3s;
+  }
+
+  .media-item:hover { border-color: rgba(21,178,199,0.4); }
+
+  .media-item strong {
+    display: block;
+    color: var(--light);
+    font-weight: 400;
+    margin-bottom: 0.3rem;
+    font-size: 0.88rem;
+  }
+
+  /* ── PROFILE ── */
+  #profile {
+    border-top: 1px solid rgba(159,212,213,0.1);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .profile-aside {
+    position: sticky;
+    top: 6rem;
+  }
+
+  .profile-img-wrap {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: linear-gradient(135deg, var(--mid), rgba(21,178,199,0.08));
+    border: 1px solid rgba(159,212,213,0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 1.5rem;
+  }
+
+  .profile-meta {
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 2;
+  }
+
+  .profile-meta strong {
+    display: block;
+    color: var(--light);
+    font-size: 1rem;
+    font-family: 'Noto Serif JP', serif;
+    margin-bottom: 0.3rem;
+  }
+
+  .profile-main p {
+    font-size: 0.92rem;
+    color: rgba(245,244,240,0.75);
+    line-height: 2.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .profile-main .quote {
+    border-left: 2px solid var(--word);
+    padding-left: 1.5rem;
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.05rem;
+    color: var(--ring);
+    margin: 2.5rem 0;
+    line-height: 2;
+  }
+
+  /* ── BOOK ── */
+  #book {
+    border-top: 1px solid rgba(159,212,213,0.1);
+    background: var(--mid);
+    max-width: 100%;
+    padding: 7rem;
+  }
+
+  .book-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .book-cover {
+    width: 200px;
+    height: 280px;
+    background: linear-gradient(135deg, rgba(21,178,199,0.3), rgba(159,212,213,0.1));
+    border: 1px solid rgba(159,212,213,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: 0.75rem;
+    writing-mode: vertical-rl;
+    letter-spacing: 0.2em;
+  }
+
+  .book-info h2 {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 1.8rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  .book-info .publish-date {
+    font-size: 0.78rem;
+    color: var(--word);
+    letter-spacing: 0.15em;
+    margin-bottom: 1.5rem;
+  }
+
+  .book-info p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 2.1;
+    max-width: 500px;
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    border-top: 1px solid rgba(159,212,213,0.1);
+    text-align: center;
+    max-width: 700px;
+  }
+
+  #contact .section-label { justify-content: center; }
+  #contact .section-label::after { display: none; }
+  #contact .section-label::before { content: ''; display: block; width: 40px; height: 1px; background: var(--word); }
+
+  #contact p {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 2.1;
+    margin-bottom: 3rem;
+  }
+
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    text-align: left;
+  }
+
+  .contact-form label {
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    color: var(--muted);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.4rem;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    background: var(--mid);
+    border: 1px solid rgba(159,212,213,0.2);
+    color: var(--light);
+    padding: 0.9rem 1.2rem;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 0.88rem;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    border-color: var(--word);
+  }
+
+  .contact-form textarea { height: 140px; resize: vertical; }
+
+  .contact-form .btn-primary {
+    align-self: flex-start;
+    margin-top: 0.5rem;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid rgba(159,212,213,0.1);
+    padding: 2.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  footer .logo { font-size: 1rem; }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  /* ── REVEAL SYSTEM ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  .reveal.visible .vm-block:nth-child(1) { animation: slideInLeft 0.8s 0.2s cubic-bezier(0.16,1,0.3,1) both; }
+  .reveal.visible .vm-block:nth-child(2) { animation: slideInRight 0.8s 0.4s cubic-bezier(0.16,1,0.3,1) both; }
+
+  .reveal.visible .service-card:nth-child(1) { animation: cardPop 0.7s 0.1s cubic-bezier(0.34,1.56,0.64,1) both; }
+  .reveal.visible .service-card:nth-child(2) { animation: cardPop 0.7s 0.25s cubic-bezier(0.34,1.56,0.64,1) both; }
+  .reveal.visible .service-card:nth-child(3) { animation: cardPop 0.7s 0.4s cubic-bezier(0.34,1.56,0.64,1) both; }
+
+  .reveal.visible .media-item:nth-child(1) { animation: fadeSlideUp 0.6s 0.05s ease both; }
+  .reveal.visible .media-item:nth-child(2) { animation: fadeSlideUp 0.6s 0.15s ease both; }
+  .reveal.visible .media-item:nth-child(3) { animation: fadeSlideUp 0.6s 0.25s ease both; }
+  .reveal.visible .media-item:nth-child(4) { animation: fadeSlideUp 0.6s 0.35s ease both; }
+
+  .reveal.visible .profile-aside { animation: slideInLeft 1s 0.1s cubic-bezier(0.16,1,0.3,1) both; }
+  .reveal.visible .profile-main { animation: slideInRight 1s 0.3s cubic-bezier(0.16,1,0.3,1) both; }
+
+  .reveal.visible .quote { animation: glowIn 1s 0.6s ease both; }
+
+  @keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-40px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes slideInRight {
+    from { opacity: 0; transform: translateX(40px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes cardPop {
+    from { opacity: 0; transform: translateY(40px) scale(0.95); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes glowIn {
+    from { opacity: 0; transform: translateX(-10px); border-left-color: transparent; }
+    to   { opacity: 1; transform: translateX(0); border-left-color: var(--word); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 2rem; }
+    #hero { grid-template-columns: 1fr; padding: 7rem 2rem 4rem; }
+    .hero-line { display: none; }
+    .hero-text { padding-right: 0; }
+    .hero-visual { display: none; }
+    #vision, #profile { grid-template-columns: 1fr; gap: 3rem; }
+    .service-grid { grid-template-columns: 1fr; }
+    .media-grid { grid-template-columns: 1fr 1fr; }
+    section { padding: 5rem 2rem; }
+    #book { padding: 5rem 2rem; }
+    .book-inner { grid-template-columns: 1fr; gap: 2rem; }
+    footer { flex-direction: column; gap: 1rem; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo">Choice</a>
+  <ul class="nav-links">
+    <li><a href="#vision">Vision</a></li>
+    <li><a href="#service">Service</a></li>
+    <li><a href="#media">Media</a></li>
+    <li><a href="#profile">Profile</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-line"></div>
+
+  <div class="hero-text">
+    <span class="hero-tag">Career Coach / Author</span>
+    <h1 class="hero-title">
+      社会人の思い込みを外し<br>
+      <em>本来の才能</em>を使って<br>
+      働くことが当たり前の<br>社会を作る
+    </h1>
+    <p class="hero-sub">
+      あなたの可能性は、そんなもんじゃない。<br>
+      キャリアの主導権を、自分の手に取り戻す。
+    </p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn-primary">お問い合わせ</a>
+      <a href="#service" class="btn-outline">サービスを見る</a>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-portrait-placeholder">PHOTO</div>
+    <div class="hero-name-card">
+      <div class="hero-name">Koichiro Nakamura</div>
+      <div class="hero-role">Career Coach / Author</div>
+      <div class="social-links">
+        <a href="https://x.com/career516" target="_blank">X</a>
+        <a href="https://www.facebook.com/ko16gooner/" target="_blank">Facebook</a>
+        <a href="https://www.instagram.com/ko16gooner" target="_blank">Instagram</a>
+        <a href="https://www.linkedin.com/in/koichironakamura" target="_blank">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VISION / MISSION -->
+<section id="vision" class="reveal">
+  <div>
+    <div class="section-label">Vision & Mission</div>
+    <h2 class="section-title">私が目指す世界</h2>
+    <div class="vm-block">
+      <h3>Vision</h3>
+      <p>
+        才能を使って働くことが当たり前の社会。<br>
+        環境によって作られた思い込みから解放され、<br>
+        誰もが本来の力を発揮できる世界を目指しています。
+      </p>
+    </div>
+  </div>
+  <div style="padding-top: 4rem;">
+    <div class="vm-block" style="margin-top: 2rem;">
+      <h3>Mission</h3>
+      <p>
+        自分の気持ちを大切にして働く社会人を<br>
+        一人ずつ増やしていく。<br>
+        直感・論理・感情の3つの角度から、<br>
+        あなたのキャリアを1段上へ引き上げます。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE -->
+<section id="service" class="reveal">
+  <div class="section-label">Service</div>
+  <h2 class="section-title">３つの角度からキャリアを<br>1段上に引き上げる</h2>
+
+  <div class="service-grid">
+    <div class="service-card">
+      <div class="service-number">01</div>
+      <h3>直感 — 本当の望みを知る</h3>
+      <p>安心安全な環境で、普段の自分では気づかない本当の望みを引き出し、一段上の目的地を設定します。</p>
+    </div>
+    <div class="service-card">
+      <div class="service-number">02</div>
+      <h3>論理 — 道筋を明確にする</h3>
+      <p>頭の中の「モヤモヤ」を丁寧に紐解き、本当の望みを手に入れるための手段と計画を一緒に考えます。</p>
+    </div>
+    <div class="service-card">
+      <div class="service-number">03</div>
+      <h3>感情 — エネルギーを解放する</h3>
+      <p>普段抑えている感情を解放し、目的地へ向かうための本来のエネルギーを引き出します。</p>
+    </div>
+  </div>
+</section>
+
+<!-- MEDIA -->
+<section id="media" class="reveal">
+  <div class="section-label">Media</div>
+  <h2 class="section-title">メディア実績</h2>
+
+  <div class="media-grid">
+    <div class="media-item">
+      <strong>書籍出版</strong>
+      2026年5月 商業出版予定
+    </div>
+    <div class="media-item">
+      <strong>メディア掲載①</strong>
+      ※素材提供後に追記
+    </div>
+    <div class="media-item">
+      <strong>メディア掲載②</strong>
+      ※素材提供後に追記
+    </div>
+    <div class="media-item">
+      <strong>メディア掲載③</strong>
+      ※素材提供後に追記
+    </div>
+  </div>
+</section>
+
+<!-- PROFILE -->
+<section id="profile" class="reveal">
+  <div class="profile-aside">
+    <div class="section-label">Profile</div>
+    <div class="profile-img-wrap">PHOTO</div>
+    <div class="profile-meta">
+      <strong>中村 浩一郎</strong>
+      キャリアコーチ / 著者<br>
+      <a href="https://x.com/career516" style="color:var(--word);text-decoration:none;">@career516</a>
+    </div>
+  </div>
+
+  <div class="profile-main">
+    <h2 class="section-title" style="margin-top:4rem;">あなたの可能性は、<br>そんなもんじゃない。</h2>
+
+    <div class="quote">
+      何の制約もないとしたら、<br>やりたいことは何ですか。<br>
+      あなたの才能を100％使ったら<br>どんなことができますか。
+    </div>
+
+    <p>
+      私たちは環境によって作られています。家庭や学校で身につけてきた観念や、職場の常識によって自分自身のことを理解しています。しかし、あなたの可能性はそんなもんじゃない。
+    </p>
+    <p>
+      現実はそんなに甘くない——真面目に頑張ってきた人ほど、綺麗ごとだと感じるかもしれません。でも、自分の気持ちを大切にして働く社会人が一人ずつ増えていけば、いつか、才能を使って働くことが当たり前の社会になる。
+    </p>
+    <p>
+      なぜなら、環境が私たちを作っているからです。働くことが楽しいのは当たり前。そんな喜びに満ちた世界を作るために活動しています。
+    </p>
+    <p style="color:var(--muted);font-size:0.85rem;">
+      ※プロフィール詳細（経歴・実績等）は素材提供後に追記します。
+    </p>
+  </div>
+</section>
+
+<!-- BOOK -->
+<div id="book" class="reveal">
+  <div class="book-inner">
+    <div class="book-cover">書籍タイトル</div>
+    <div class="book-info">
+      <div class="section-label">Coming Soon</div>
+      <h2>2026年5月 商業出版予定</h2>
+      <div class="publish-date">※書籍タイトル・詳細は公開次第更新</div>
+      <p>社会人の思い込みを外し、本来の才能を使って働くことの可能性について書き下ろした一冊。詳細はもうしばらくお待ちください。</p>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section id="contact" class="reveal" style="max-width:700px;margin:0 auto;">
+  <div class="section-label">Contact</div>
+  <h2 class="section-title">お問い合わせ</h2>
+  <p>ご相談・ご依頼はこちらよりお問い合わせください。<br>内容を確認のうえ、担当よりご連絡いたします。</p>
+
+  <form class="contact-form" onsubmit="return false;">
+    <div>
+      <label>お名前（必須）</label>
+      <input type="text" placeholder="山田 太郎">
+    </div>
+    <div>
+      <label>メールアドレス（必須）</label>
+      <input type="email" placeholder="your@email.com">
+    </div>
+    <div>
+      <label>お問い合わせ内容（必須）</label>
+      <textarea placeholder="ご相談内容をご記入ください"></textarea>
+    </div>
+    <button type="submit" class="btn-primary">送信する</button>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#" class="logo">Choice</a>
+  <span>© 2026 中村浩一郎. All rights reserved.</span>
+  <div class="social-links">
+    <a href="https://x.com/career516" target="_blank" style="color:var(--muted);">X</a>
+    <a href="https://www.instagram.com/ko16gooner" target="_blank" style="color:var(--muted);">Instagram</a>
+    <a href="https://www.linkedin.com/in/koichironakamura" target="_blank" style="color:var(--muted);">LinkedIn</a>
+  </div>
+</footer>
+
+<script>
+  // スクロールリビール
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0, rootMargin: '0px 0px -80px 0px' });
+  reveals.forEach(el => observer.observe(el));
+
+  // ページロード時に既に見えている要素を即座に表示
+  window.addEventListener('load', () => {
+    reveals.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight) {
+        el.classList.add('visible');
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
